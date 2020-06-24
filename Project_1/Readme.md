@@ -1,0 +1,1 @@
+Here I have consider the task of FizzBuzz. In this task an integer divisible by 3 is printed as Fizz, and integer divisible by 5 is printed as Buzz. An integer divisible by both 3 and 5 is printed as FizzBuzz. I have compared logic base brute force method with machine learning base approach using neural network. More details can be found in Report.
