@@ -1,6 +1,6 @@
 Image Classification
 
-I have developed two approaches for image classification on Fashion-MNIST data set and compared the results.
+I have Implemented two approaches for image classification on Fashion-MNIST data set and compared the results.
 1. Multilayer Neural Network 
 2. Convolutional Neural Network
 
