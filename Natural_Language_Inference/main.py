@@ -5,7 +5,7 @@ import nltk
 import string
 import pandas as pd
 import pickle
-import json
+import jsons
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from scipy.sparse import vstack, hstack
