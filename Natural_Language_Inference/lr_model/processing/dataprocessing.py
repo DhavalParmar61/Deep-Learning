@@ -92,3 +92,15 @@ def GL_to_int(GL):
 
     GL = np.array(GL)
     return(GL)
+
+#integer to GL
+def int_to_GL(GL):
+    GL = np.ndarray.tolist(GL)
+    for i in range(len(GL)):
+        if GL[i] == 0:
+            GL[i] = 'neutral'
+        elif GL[i] == 1:
+            GL[i] = 'entailment'
+        elif GL[i] == 2:
+            GL[i] = 'contradiction'
+    return(GL)

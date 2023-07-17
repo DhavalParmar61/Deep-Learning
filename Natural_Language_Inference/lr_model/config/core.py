@@ -1,17 +1,13 @@
 from pathlib import Path
-from typing import Dict, List, Sequence
-
 from pydantic import BaseModel
 from strictyaml import YAML, load
+from Git_Repo.Natural_Language_Inference import lr_model
 
-import lr_model
-
+print(lr_model.__file__)
 # Project Directories
 PACKAGE_ROOT = Path(lr_model.__file__).resolve().parent
 ROOT = PACKAGE_ROOT.parent
 CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"
-DATASET_DIR = PACKAGE_ROOT /../ "data"
-TRAINED_MODEL_DIR = PACKAGE_ROOT / "trained_models"
 
 
 class AppConfig(BaseModel):
@@ -19,10 +15,10 @@ class AppConfig(BaseModel):
     Application-level config.
     """
 
-    package_name: str
     training_data_file: str
     test_data_file: str
-    pipeline_save_file: str
+    sentence1_vectorizer: str
+    sentence2_vectorizer: str
 
 
 class ModelConfig(BaseModel):
@@ -31,7 +27,9 @@ class ModelConfig(BaseModel):
     training and feature engineering.
     """
 
-    max_iter: str
+    model_path: str
+    max_iterations: int
+    output_path : str
 
 
 class Config(BaseModel):
@@ -71,8 +69,6 @@ def create_and_validate_config(parsed_config: YAML = None) -> Config:
         app_config=AppConfig(**parsed_config.data),
         model_config=ModelConfig(**parsed_config.data),
     )
-
     return _config
-
 
 config = create_and_validate_config()
