@@ -17,6 +17,7 @@ class AppConfig(BaseModel):
 
     training_data_file: str
     test_data_file: str
+    sample_test_file : str
     sentence1_vectorizer: str
     sentence2_vectorizer: str
 

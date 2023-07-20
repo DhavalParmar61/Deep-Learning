@@ -3,11 +3,7 @@ import pickle
 import numpy as np
 import nltk
 import json
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
-from scipy.sparse import vstack, hstack
 from nltk.tokenize import word_tokenize
-from nltk.stem import PorterStemmer
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 nltk.download('stopwords')

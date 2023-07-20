@@ -4,8 +4,8 @@ import pickle
 from sklearn.linear_model import LogisticRegression
 from scipy.sparse import hstack
 
-def run_test() -> None:
-    [corpus_test, GL_test] = get_data(config.app_config.test_data_file)
+def run_test(test_path) -> None:
+    [corpus_test, GL_test] = get_data(test_path)
 
     # Logistic Regression model
     corpus1_test = []
@@ -41,5 +41,7 @@ def run_test() -> None:
         for i in range(len(output)):
             f.write(f"%s\n" % output[i])
 
+    return output
+
 if __name__=="__main__":
-    run_test()
+    run_test(config.app_config.test_data_file)

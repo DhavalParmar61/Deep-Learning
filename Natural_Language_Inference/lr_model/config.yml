@@ -4,6 +4,7 @@ package_name: regression_model
 # Data Files
 training_data_file: ../data/snli_1.0_train_subset.jsonl
 test_data_file: ../data/snli_1.0_test.jsonl
+sample_test_file : ../data/snli_1.0_sample_test.jsonl
 
 # Train output
 sentence1_vectorizer: ../data/feature_s1_v1.pkl
