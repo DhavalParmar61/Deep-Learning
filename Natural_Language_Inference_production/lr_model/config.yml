@@ -3,18 +3,17 @@ package_name: lr_model
 
 # Data Files
 training_data_file: data/snli_1.0_train_subset.jsonl
-test_data_file: data/snli_1.0_test.jsonl
-sample_test_file : data/snli_1.0_test.jsonl
+validation_data_file: data/snli_1.0_test.jsonl
 
 # Train output
-sentence1_vectorizer: data/feature_s1_v1.pkl
-sentence2_vectorizer: data/feature_s2_v1.pkl
+sentence1_vectorizer: lr_model/trained_models/feature_s1.pkl
+sentence2_vectorizer: lr_model/trained_models/feature_s2.pkl
 
 #trained model
-output_model_path: lr_model/trained_models/LR_models_v1.sav
+output_model_path: lr_model/trained_models/LR_models.sav
 
 #train parameter
 max_iterations: 5000
 
 #test
-output_path: lr_model/trained_models/prediction_v1.txt
+output_path: lr_model/trained_models/prediction.txt

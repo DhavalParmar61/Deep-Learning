@@ -18,22 +18,21 @@ def run_training() -> None:
 
     vectorizer_s1 = TfidfVectorizer()
     s1_train = vectorizer_s1.fit_transform(corpus1_train)
-    f1 = open(config.app_config.sentence1_vectorizer, "wb")
-    pickle.dump(vectorizer_s1, f1)
-    f1.close
+    with open(config.app_config.sentence1_vectorizer, "wb") as f1:
+        pickle.dump(vectorizer_s1, f1)
 
     vectorizer_s2 = TfidfVectorizer()
     s2_train = vectorizer_s2.fit_transform(corpus2_train)
-    f2 = open(config.app_config.sentence2_vectorizer, "wb")
-    pickle.dump(vectorizer_s2, f2)
-    f2.close
+    with open(config.app_config.sentence2_vectorizer, "wb") as f2:
+        pickle.dump(vectorizer_s2, f2)
 
     X_train = hstack([s1_train, s2_train])
 
     # Classifier
-    model = LogisticRegression(max_iter=config.model_info_config.max_iterations)
+    model = LogisticRegression(max_iter=config.lr_info_config.max_iterations)
     model.fit(X_train, Y_train)
-    pickle.dump(model, open(config.model_info_config.output_model_path, "wb"))
+    with open(config.lr_info_config.output_model_path, "wb") as model_file:
+        pickle.dump(model, model_file)
 
 
 if __name__ == "__main__":
