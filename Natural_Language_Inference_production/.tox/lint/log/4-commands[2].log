@@ -1,0 +1,51 @@
+name: lint
+run_id: commands[2]
+env COMSPEC: C:\Windows\system32\cmd.exe
+env NUMBER_OF_PROCESSORS: 8
+env PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+env PROCESSOR_ARCHITECTURE: AMD64
+env PROGRAMDATA: C:\ProgramData
+env PROGRAMFILES: C:\Program Files
+env PROGRAMFILES(X86): C:\Program Files (x86)
+env SYSTEMDRIVE: C:
+env SYSTEMROOT: C:\Windows
+env TEMP: C:\Users\dhava\AppData\Local\Temp
+env TMP: C:\Users\dhava\AppData\Local\Temp
+env USERPROFILE: C:\Users\dhava
+env PATH: E:\IISC\Second_sem\DL\project\Git_Repo\Natural_Language_Inference_production\.tox\test_package\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Users\dhava\AppData\Local\Programs\Python\Python310;C:\Users\dhava\AppData\Local\Programs\Python\Python310\Scripts;C:\Program Files (x86)\Common Files\Acronis\SnapAPI\;C:\Program Files (x86)\Common Files\Acronis\VirtualFile\;C:\Program Files (x86)\Common Files\Acronis\VirtualFile64\;C:\Program Files (x86)\Common Files\Acronis\FileProtector\;C:\Program Files (x86)\Common Files\Acronis\FileProtector64\;C:\Users\dhava\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\dhava\AppData\Local\Programs\Python\Python39\;C:\Users\dhava\AppData\Local\Microsoft\WindowsApps
+env PYTHONHASHSEED: 351
+env PIP_DISABLE_PIP_VERSION_CHECK: 1
+env PYTHONIOENCODING: utf-8
+env TOX_ENV_NAME: lint
+env TOX_WORK_DIR: E:\IISC\Second_sem\DL\project\Git_Repo\Natural_Language_Inference_production\.tox
+env TOX_ENV_DIR: E:\IISC\Second_sem\DL\project\Git_Repo\Natural_Language_Inference_production\.tox\test_package
+env VIRTUAL_ENV: E:\IISC\Second_sem\DL\project\Git_Repo\Natural_Language_Inference_production\.tox\test_package
+env COLUMNS: 120
+env LINES: 30
+metadata pid: 6232
+cwd: E:\IISC\Second_sem\DL\project\Git_Repo\Natural_Language_Inference_production
+allow: E:\IISC\Second_sem\DL\project\Git_Repo\Natural_Language_Inference_production\.tox\test_package\Scripts\*
+cmd: mypy lr_model
+exit_code: 1
+lr_model\train.py:3: error: Cannot find implementation or library stub for module named "config.core"  [import]
+lr_model\train.py:4: error: Cannot find implementation or library stub for module named "processing.dataprocessing"  [import]
+lr_model\train.py:5: error: Skipping analyzing "scipy.sparse": module is installed, but missing library stubs or py.typed marker  [import]
+lr_model\train.py:6: error: Skipping analyzing "sklearn.feature_extraction.text": module is installed, but missing library stubs or py.typed marker  [import]
+lr_model\train.py:7: error: Skipping analyzing "sklearn.linear_model": module is installed, but missing library stubs or py.typed marker  [import]
+lr_model\test.py:3: error: Cannot find implementation or library stub for module named "config.core"  [import]
+lr_model\test.py:4: error: Cannot find implementation or library stub for module named "processing.dataprocessing"  [import]
+lr_model\test.py:5: error: Skipping analyzing "scipy.sparse": module is installed, but missing library stubs or py.typed marker  [import]
+lr_model\test.py:6: error: Skipping analyzing "sklearn.linear_model": module is installed, but missing library stubs or py.typed marker  [import]
+lr_model\processing\dataprocessing.py:5: error: Skipping analyzing "nltk": module is installed, but missing library stubs or py.typed marker  [import]
+lr_model\processing\dataprocessing.py:7: error: Skipping analyzing "nltk.corpus": module is installed, but missing library stubs or py.typed marker  [import]
+lr_model\processing\dataprocessing.py:8: error: Skipping analyzing "nltk.stem": module is installed, but missing library stubs or py.typed marker  [import]
+lr_model\processing\dataprocessing.py:9: error: Skipping analyzing "nltk.tokenize": module is installed, but missing library stubs or py.typed marker  [import]
+lr_model\config\core.py:5: error: Skipping analyzing "strictyaml": module is installed, but missing library stubs or py.typed marker  [import]
+lr_model\config\core.py:5: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+lr_model\config\core.py:12: error: Argument 1 to "append" of "list" has incompatible type "Path"; expected "str"  [arg-type]
+lr_model\config\core.py:43: error: Cannot override class variable (previously declared on base class "BaseModel") with instance variable  [misc]
+lr_model\config\core.py:43: error: Incompatible types in assignment (expression has type "ModelConfig", base class "BaseModel" defined the type as "ConfigDict")  [assignment]
+lr_model\config\core.py:53: error: Incompatible default for argument "cfg_path" (default has type "None", argument has type "Path")  [assignment]
+lr_model\config\core.py:53: note: PEP 484 prohibits implicit Optional. Accordingly, mypy has changed its default to no_implicit_optional=True
+lr_model\config\core.py:53: note: Use https://github.com/hauntsaninja/no_implicit_optional to automatically upgrade your codebase
+Found 18 errors in 4 files (checked 8 source files)
