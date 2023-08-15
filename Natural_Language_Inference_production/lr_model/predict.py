@@ -2,7 +2,6 @@ import pickle
 
 import numpy as np
 from scipy.sparse import hstack
-from sklearn.linear_model import LogisticRegression
 
 from lr_model import __version__ as _version
 from lr_model.config.core import config
@@ -11,8 +10,8 @@ from lr_model.processing.dataprocessing import int_to_GL, preprocess_input
 vectorizer1 = pickle.load(open(config.app_config.sentence1_vectorizer, "rb"))
 vectorizer2 = pickle.load(open(config.app_config.sentence2_vectorizer, "rb"))
 
-model_LR = LogisticRegression(max_iter=config.model_info_config.max_iterations)
-model_LR = pickle.load(open(config.model_info_config.output_model_path, "rb"))
+with open(config.lr_info_config.output_model_path, "rb") as model:
+    model_LR = pickle.load(model)
 
 
 def make_prediction(input: dict) -> dict:

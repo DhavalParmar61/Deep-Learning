@@ -17,8 +17,7 @@ class AppConfig(BaseModel):
     """
 
     training_data_file: str
-    test_data_file: str
-    sample_test_file: str
+    validation_data_file: str
     sentence1_vectorizer: str
     sentence2_vectorizer: str
     package_name: str
@@ -38,7 +37,7 @@ class ModelInfoConfig(BaseModel):
 class Config(BaseModel):
     """Master config object."""
 
-    model_info_config: ModelInfoConfig
+    lr_info_config: ModelInfoConfig
     app_config: AppConfig
 
 
@@ -69,7 +68,7 @@ def create_and_validate_config(parsed_config: YAML = None) -> Config:
 
     # specify the data attribute from the strictyaml YAML type.
     _config = Config(
-        model_info_config=ModelInfoConfig(**parsed_config.data),
+        lr_info_config=ModelInfoConfig(**parsed_config.data),
         app_config=AppConfig(**parsed_config.data),
     )
     print(f"_config:{_config}")
