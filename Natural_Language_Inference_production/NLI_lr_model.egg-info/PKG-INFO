@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: NLI-lr-model
+Version: 0.0.2
+Summary: Example regression model package for Natural Language Inference trained on SNLI data set
+Home-page: https://github.com/DhavalParmar61/Deep-Learning/tree/master/Natural_Language_Inference_production
+Author: Dhaval Parmar
+Author-email: dhavalparmar61@gmail.com
+License: BSD-3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
+
+Example regression model package for Natural Language Inference trained on SNLI data set

@@ -6,14 +6,14 @@ training_data_file: data/snli_1.0_train_subset.jsonl
 validation_data_file: data/snli_1.0_test.jsonl
 
 # Train output
-sentence1_vectorizer: lr_model/trained_models/feature_s1.pkl
-sentence2_vectorizer: lr_model/trained_models/feature_s2.pkl
+sentence1_vectorizer: trained_models/feature_s1.pkl
+sentence2_vectorizer: trained_models/feature_s2.pkl
 
 #trained model
-output_model_path: lr_model/trained_models/LR_models.sav
+output_model_path: trained_models/LR_models.sav
 
 #train parameter
 max_iterations: 5000
 
 #test
-output_path: lr_model/trained_models/prediction.txt
+output_path: trained_models/prediction.txt
