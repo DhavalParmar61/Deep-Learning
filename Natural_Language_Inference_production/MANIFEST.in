@@ -1,0 +1,19 @@
+include *.txt
+include *.md
+include *.pkl
+recursive-include ./lr_model/*
+
+include data/snli_1.0_train_subset.jsonl
+include data/snli_1.0_test.jsonl
+include lr_model/trained_models/*.sav
+include lr_model/trained_models/*.pkl
+include lr_model/VERSION
+include lr_model/config.yml
+
+include ./requirements/requirements.txt
+include ./requirements/test_requirements.txt
+exclude *.log
+exclude *.cfg
+
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]

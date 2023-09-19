@@ -1,6 +1,6 @@
 import pickle
 
-from config.core import config
+from config.core import PACKAGE_ROOT, config
 from processing.dataprocessing import get_data
 from scipy.sparse import hstack
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -18,12 +18,12 @@ def run_training() -> None:
 
     vectorizer_s1 = TfidfVectorizer()
     s1_train = vectorizer_s1.fit_transform(corpus1_train)
-    with open(config.app_config.sentence1_vectorizer, "wb") as f1:
+    with open(PACKAGE_ROOT / config.app_config.sentence1_vectorizer, "wb") as f1:
         pickle.dump(vectorizer_s1, f1)
 
     vectorizer_s2 = TfidfVectorizer()
     s2_train = vectorizer_s2.fit_transform(corpus2_train)
-    with open(config.app_config.sentence2_vectorizer, "wb") as f2:
+    with open(PACKAGE_ROOT / config.app_config.sentence2_vectorizer, "wb") as f2:
         pickle.dump(vectorizer_s2, f2)
 
     X_train = hstack([s1_train, s2_train])
@@ -31,7 +31,9 @@ def run_training() -> None:
     # Classifier
     model = LogisticRegression(max_iter=config.lr_info_config.max_iterations)
     model.fit(X_train, Y_train)
-    with open(config.lr_info_config.output_model_path, "wb") as model_file:
+    with open(
+        PACKAGE_ROOT / config.lr_info_config.output_model_path, "wb"
+    ) as model_file:
         pickle.dump(model, model_file)
 
 

@@ -4,13 +4,17 @@ import numpy as np
 from scipy.sparse import hstack
 
 from lr_model import __version__ as _version
-from lr_model.config.core import config
+from lr_model.config.core import PACKAGE_ROOT, config
 from lr_model.processing.dataprocessing import int_to_GL, preprocess_input
 
-vectorizer1 = pickle.load(open(config.app_config.sentence1_vectorizer, "rb"))
-vectorizer2 = pickle.load(open(config.app_config.sentence2_vectorizer, "rb"))
+vectorizer1 = pickle.load(
+    open(PACKAGE_ROOT / config.app_config.sentence1_vectorizer, "rb")
+)
+vectorizer2 = pickle.load(
+    open(PACKAGE_ROOT / config.app_config.sentence2_vectorizer, "rb")
+)
 
-with open(config.lr_info_config.output_model_path, "rb") as model:
+with open(PACKAGE_ROOT / config.lr_info_config.output_model_path, "rb") as model:
     model_LR = pickle.load(model)
 
 
